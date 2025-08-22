@@ -1,10 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
+  // Performance optimizations
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'react-icons'],
   },
-};
+  
+  // Image optimization
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
+  },
+  
+  // Compression for better performance
+  compress: true,
+  
+  // Powered by header
+  poweredByHeader: false,
+  
+  // React strict mode for better development
+  reactStrictMode: true,
+}
 
-export default nextConfig;
+export default nextConfig

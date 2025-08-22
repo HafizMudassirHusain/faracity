@@ -315,6 +315,7 @@ export default function InteractiveBackground({ children }) {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
+
     }
   }, [initCanvas, animate, isVisible])
 
