@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ClientWrapper from "@/components/ClientWrapper";
+// import ClientWrapper from "@/components/ClientWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "TechWave - Next-Gen Tech Solutions",
+  title: "Fahracity- Next-Gen Tech Solutions",
   description: "Your one-stop destination for the latest tech solutions and services",
 };
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#121212] text-white`}
       >
-        <ClientWrapper>
+        {/* <ClientWrapper> */}
           <Navbar />
           <div className="min-h-screen flex flex-col">
             <main className="flex-grow">
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
             </main>
             <Footer />
           </div>
-        </ClientWrapper>
+        {/* </ClientWrapper> */}
       </body>
     </html>
   );
