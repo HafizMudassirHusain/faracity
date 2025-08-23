@@ -1,10 +1,10 @@
 "use client"
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaExternalLinkAlt } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaImage } from 'react-icons/fa'
 
 // Projects data
 const projects = [
@@ -70,72 +70,93 @@ const categoryColors = {
 export default function ProjectsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const [imageErrors, setImageErrors] = useState({})
+
+  // Debug logging to ensure component renders
+  console.log('ProjectsSection rendered, projects count:', projects.length)
 
   return (
-    <section ref={ref} className="py-24 bg-black/90">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24 bg-slate-900/80 relative min-h-screen border-t border-slate-700/30">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-extrabold text-white mb-4">Our Projects</h2>
-          <div className="mx-auto mb-6 h-1 w-24 rounded bg-blue-500"></div>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">Our Projects</h2>
+          <div className="mx-auto mb-6 h-1 w-16 sm:w-24 rounded bg-blue-500"></div>
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto px-4">
             Explore our featured case studies presented in a clean, focused layout.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {projects.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-gray-400">No projects available at the moment.</p>
+            </div>
+          ) : (
+            projects.map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="relative group overflow-hidden rounded-2xl border border-gray-700/40 shadow-2xl transition-all duration-300 ease-in-out hover:border-gray-600/60"
+              whileHover={{ scale: 1.02 }}
+              className="relative group overflow-hidden rounded-xl sm:rounded-2xl border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm shadow-xl transition-all duration-300 ease-in-out hover:border-slate-500/50 hover:shadow-2xl"
             >
               {/* external link button */}
-              <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Link
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300"
+                  className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-800/80 backdrop-blur-md border border-slate-500/50 text-white hover:bg-blue-500/80 hover:border-blue-400/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300"
                 >
-                  <FaExternalLinkAlt className="w-4 h-4" />
+                  <FaExternalLinkAlt className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Link>
               </div>
 
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={project.images[0]}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="relative h-40 sm:h-48 overflow-hidden">
+                {imageErrors[project.id] ? (
+                  <div className="w-full h-full bg-slate-700/50 flex items-center justify-center">
+                    <div className="text-center">
+                      <FaImage className="w-12 h-12 text-slate-400 mx-auto mb-2" />
+                      <p className="text-slate-400 text-xs">Image not available</p>
+                    </div>
+                  </div>
+                ) : (
+                  <Image
+                    src={project.images[0]}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={idx < 3}
+                    onError={() => setImageErrors(prev => ({ ...prev, [project.id]: true }))}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* Colorful Glowing Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {project.categories.map((category) => (
                     <span
                       key={category}
-                      className={`px-3 py-1 text-xs font-medium rounded-full ${categoryColors[category]} transition-all duration-300 hover:scale-105`}
+                      className={`px-2 py-1 sm:px-3 sm:py-1 text-xs font-medium rounded-full ${categoryColors[category]} transition-all duration-300 hover:scale-105`}
                     >
                       {category}
                     </span>
@@ -147,12 +168,12 @@ export default function ProjectsSection() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-400 font-medium hover:text-blue-300 transition-colors duration-300"
+                  className="inline-flex items-center text-blue-400 font-medium hover:text-blue-300 transition-colors duration-300 text-sm sm:text-base"
                 >
                   View Project
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
-                    className="h-4 w-4 ml-2" 
+                    className="h-3 w-3 sm:h-4 sm:w-4 ml-1.5 sm:ml-2" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
@@ -167,7 +188,8 @@ export default function ProjectsSection() {
                 </Link>
               </div>
             </motion.div>
-          ))}
+          ))
+          )}
         </div>
       </div>
     </section>

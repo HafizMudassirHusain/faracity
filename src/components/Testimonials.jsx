@@ -96,11 +96,11 @@ export default function TestimonialsSection() {
   }, [isMobile])
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-visible">
       {/* Beautiful gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 to-slate-800/50">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.05),transparent_50%)]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -120,7 +120,7 @@ export default function TestimonialsSection() {
             What Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-            Real feedback from real users—see why they trust us to deliver exceptional results
+            Real feedback from real users see why they trust us to deliver exceptional results
           </p>
         </motion.div>
 
@@ -137,7 +137,7 @@ export default function TestimonialsSection() {
           {/* Scrollable testimonials with duplicated content for seamless loop */}
           <div 
             ref={scrollContainerRef}
-            className={`flex gap-4 sm:gap-6 lg:gap-8 overflow-x-hidden scrollbar-hide`}
+            className={`flex gap-4 sm:gap-6 lg:gap-8 overflow-x-hidden scrollbar-hide py-4`}
             style={{ 
               WebkitOverflowScrolling: 'touch',
               scrollbarWidth: 'none', /* Firefox */
@@ -156,12 +156,12 @@ export default function TestimonialsSection() {
                   y: -4,
                   transition: { duration: 0.3 }
                 }}
-                className={`flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px]`}
+                className={`flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] p-2`}
               >
                 {/* Beautiful Testimonial Card - Responsive */}
                 <div className="relative group">
                   {/* Main Card */}
-                  <div className="relative bg-gradient-to-br from-white/8 to-white/3 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl border border-white/15 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-slate-800/30 to-slate-700/20 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl border border-slate-600/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 overflow-hidden">
                     {/* Animated gradient border */}
                     <div className="absolute inset-0 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
@@ -227,12 +227,12 @@ export default function TestimonialsSection() {
                   y: -4,
                   transition: { duration: 0.3 }
                 }}
-                className={`flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px]`}
+                className={`flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] p-2`}
               >
                 {/* Beautiful Testimonial Card - Responsive */}
                 <div className="relative group">
                   {/* Main Card */}
-                  <div className="relative bg-gradient-to-br from-white/8 to-white/3 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl border border-white/15 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-slate-800/30 to-slate-700/20 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl border border-slate-600/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 overflow-hidden">
                     {/* Animated gradient border */}
                     <div className="absolute inset-0 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
