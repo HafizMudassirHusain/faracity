@@ -92,7 +92,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="text-blue-400 text-xl" />
-                <span>info@techwave.com</span>
+                <span>info@fahracity.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaMapMarkerAlt className="text-blue-400 text-xl" />

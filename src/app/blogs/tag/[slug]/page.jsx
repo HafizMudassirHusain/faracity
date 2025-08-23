@@ -9,14 +9,14 @@ export async function generateMetadata({ params }) {
   
   if (!tag) {
     return {
-      title: 'Tag Not Found | TechWave Blog',
+      title: 'Tag Not Found | Fahracity Blog',
       description: 'The requested tag could not be found.',
     };
   }
 
   return {
-    title: `${tag.name} Articles | TechWave Blog`,
-    description: `Explore ${tag.count} articles tagged with ${tag.name} - latest insights and trends.`,
+          title: `${tag.name} Articles | Fahracity Blog`,
+      description: `Explore ${tag.count} articles tagged with ${tag.name} - latest insights and trends.`,
   };
 }
 

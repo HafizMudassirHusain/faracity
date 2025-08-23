@@ -28,12 +28,12 @@ export default function Footer() {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Company Info */}
         <div>
-          <h4 className="text-white font-bold mb-4 text-lg">TechWave</h4>
+          <h4 className="text-white font-bold mb-4 text-lg">Fahracity</h4>
           <p className="text-sm mb-4 text-gray-300">
             Your one-stop destination for cutting-edge technology solutions: AI, Blockchain, Cloud, Software, and more.
           </p>
           <p className="text-sm mb-1">
-            Email: <Link href="mailto:info@techwave.com" className="text-blue-400 hover:text-blue-300 transition-colors">info@techwave.com</Link>
+            Email: <Link href="mailto:info@fahracity.com" className="text-blue-400 hover:text-blue-300 transition-colors">info@fahracity.com</Link>
           </p>
           <p className="text-sm">
             Phone: <Link href="tel:+15551234567" className="text-blue-400 hover:text-blue-300 transition-colors">(555) 123-4567</Link>
@@ -73,18 +73,18 @@ export default function Footer() {
           <h4 className="text-white font-bold mb-4 text-lg">Follow Us</h4>
           <div className="flex space-x-4 mb-6 text-xl">
             {[
-              { icon: <FaFacebook />, href: 'https://facebook.com/techwave' },
-              { icon: <FaTwitter />, href: 'https://twitter.com/techwave' },
-              { icon: <FaLinkedin />, href: 'https://linkedin.com/company/techwave' },
-              { icon: <FaInstagram />, href: 'https://instagram.com/techwave' },
-              { icon: <FaGithub />, href: 'https://github.com/techwave' },
+              { icon: <FaFacebook />, href: 'https://facebook.com/fahracity' },
+              { icon: <FaTwitter />, href: 'https://twitter.com/fahracity' },
+              { icon: <FaLinkedin />, href: 'https://linkedin.com/company/fahracity' },
+              { icon: <FaInstagram />, href: 'https://instagram.com/fahracity' },
+              { icon: <FaGithub />, href: 'https://github.com/fahracity' },
             ].map(({ icon, href }, idx) => (
               <Link key={idx} href={href} className="text-blue-400 hover:text-blue-300 transition-colors">
                 {icon}
               </Link>
             ))}
           </div>
-          <p className="text-xs text-gray-400">© {year} TechWave. All rights reserved.</p>
+          <p className="text-xs text-gray-400">© {year} Fahracity. All rights reserved.</p>
           <p className="text-xs mt-2 text-gray-400">
             <Link href="/privacy" className="hover:text-blue-400 transition-colors mr-4">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-blue-400 transition-colors">Terms of Service</Link>

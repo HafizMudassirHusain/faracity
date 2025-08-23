@@ -9,14 +9,14 @@ export async function generateMetadata({ params }) {
   
   if (!post) {
     return {
-      title: 'Blog Post Not Found | TechWave',
+      title: 'Blog Post Not Found | Fahracity',
       description: 'The requested blog post could not be found.',
     };
   }
 
   return {
-    title: `${post.title} | TechWave Blog`,
-    description: post.snippet,
+          title: `${post.title} | Fahracity Blog`,
+      description: post.excerpt,
   };
 }
 
@@ -63,21 +63,12 @@ export default async function BlogPost({ params }) {
             
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 rounded-full bg-[#252525] overflow-hidden flex items-center justify-center mr-4">
-                {post.author.image ? (
-                  <img
-                    src={post.author.image}
-                    alt={post.author.name}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                )}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
               </div>
               <div>
-                <p className="text-gray-200 font-medium">{post.author.name}</p>
-                <p className="text-gray-500 text-sm">{post.author.role}</p>
+                <p className="text-gray-200 font-medium">{post.author}</p>
               </div>
             </div>
           </div>

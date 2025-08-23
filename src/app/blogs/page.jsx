@@ -4,7 +4,7 @@ import BlogSearch from "@/components/blogs/BlogSearch";
 import BlogCategories from "@/components/blogs/BlogCategories";
 
 export const metadata = {
-  title: "TechWave | Blog",
+  title: "Fahracity | Blog",
   description: "Explore our latest articles on technology trends, insights, and innovations."
 };
 

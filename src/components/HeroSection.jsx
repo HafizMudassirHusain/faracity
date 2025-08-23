@@ -4,10 +4,12 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { HeroCard, CTAButton } from './GlassmorphismCard'
 
 export default function HeroSection() {
   const textRef = useRef(null)
+  const router = useRouter()
 
   useEffect(() => {
     const tl = gsap.timeline()
@@ -43,10 +45,10 @@ export default function HeroSection() {
               
               {/* Enhanced Glassy Buttons */}
               <div className="flex flex-wrap gap-6 justify-center">
-                <CTAButton variant="primary" className="text-lg px-8 py-4">
+                <CTAButton variant="primary" className="text-lg px-8 py-4" onClick={() => router.push('/contact')}>
                   Get In Touch
                 </CTAButton>
-                <CTAButton variant="outline" className="text-lg px-8 py-4">
+                <CTAButton variant="outline" className="text-lg px-8 py-4" onClick={() => router.push('/services')}>
                   Explore Services
                 </CTAButton>
               </div>

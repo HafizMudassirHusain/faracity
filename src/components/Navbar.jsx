@@ -58,7 +58,7 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Link href="/">Faracity</Link>
+          <Link href="/">Fahracity</Link>
         </motion.div>
 
         {/* Desktop Navigation */}

@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { HeroCard, CTAButton } from './GlassmorphismCard'
 
 export default function CTA() {
+  const router = useRouter()
   return (
     <section className="py-20 text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -22,11 +24,11 @@ export default function CTA() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-6">
-                <CTAButton variant="primary" className="text-lg px-8 py-4">
+                <CTAButton variant="primary" className="text-lg px-8 py-4" onClick={() => router.push('/contact')}>
                   Get In Touch
                 </CTAButton>
                 
-                <CTAButton variant="outline" className="text-lg px-8 py-4">
+                <CTAButton variant="outline" className="text-lg px-8 py-4" onClick={() => router.push('/services')}>
                   Explore Services
                 </CTAButton>
               </div>

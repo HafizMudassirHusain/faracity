@@ -14,7 +14,7 @@ const projects = [
     categories: ['AI', 'Chatbot', 'Crypto'],
     description:
       'Decentralized autonomous organization (DAO) & digital wallet for token purchases, lending, staking, cross-border payments and efficient fiat↔crypto conversions.',
-    images: ['/assets/aichatbot.png', '/assets/aichatbot2.png'],
+    images: ['/assets/aichatbot.png', '/assets/aichatbot.png'],
     link: 'https://degenforest.com/',
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     categories: ['NFT', 'DeFi', 'Staking'],
     description:
       'Real-world asset (RWA) tokenization for real estate, enabling fractional ownership and seamless rental-yield distribution.',
-    images: ['/assets/nfstay1.png', '/assets/nfstay2.png'],
+    images: ['/assets/nfstay1.png', '/assets/nfstay1.png'],
     link: 'https://nfstay.com',
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     categories: ['DeFi', 'Staking'],
     description:
       'Staking dashboard for CIP tokens, with real-time reward tracking, portfolio management and performance analytics.',
-    images: ['/assets/crypto.png', '/assets/crypto2.png'],
+    images: ['/assets/crypto.png', '/assets/crypto.png'],
     link: 'https://cip-staking-new.vercel.app/',
   },
   {

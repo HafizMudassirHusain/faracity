@@ -33,7 +33,7 @@ const services = [
     title: 'Mobile App Development',
     icon: <FaMobile size={32} className="text-blue-500" />,
     description: 'Cross-platform mobile applications with seamless user experiences.',
-    link: '/services/mobile',
+    link: '/services/software',
   },
 ]
 
