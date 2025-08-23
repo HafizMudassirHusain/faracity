@@ -76,7 +76,7 @@ export default function ProjectsSection() {
   console.log('ProjectsSection rendered, projects count:', projects.length)
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 bg-slate-900/80 relative min-h-screen border-t border-slate-700/30">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24 bg-black/90 relative min-h-screen border-t border-slate-700/30">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -104,7 +104,7 @@ export default function ProjectsSection() {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="relative group overflow-hidden rounded-xl sm:rounded-2xl border border-slate-600/30 bg-slate-800/20 backdrop-blur-sm shadow-xl transition-all duration-300 ease-in-out hover:border-slate-500/50 hover:shadow-2xl"
+              className="relative group overflow-hidden rounded-xl sm:rounded-2xl border border-slate-600/30 backdrop-blur-sm shadow-xl transition-all duration-300 ease-in-out hover:border-slate-500/50 hover:shadow-2xl"
             >
               {/* external link button */}
               <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
